@@ -1,6 +1,7 @@
 package co.edu.uniandes.Workshop7.Library.Repository;
 
 import co.edu.uniandes.Workshop7.Library.Entities.Author;
+import co.edu.uniandes.Workshop7.Library.Entities.Book;
 
 
 import java.util.LinkedList;
@@ -14,7 +15,7 @@ public class AuthorRepository {
         authors = new LinkedList<Author>();
     }
 
-    public void Add(Author author){
+    public void add(Author author){
         authors.add(author);
     }
 
@@ -42,7 +43,35 @@ public class AuthorRepository {
         Author author = this.get(id);
         if(author!=null){
             author.setName(authorNew.getName());
-
         }
     }
+
+    public boolean addBook(int idAuthor, Book book){
+        Author author = this.get(idAuthor);
+        boolean result = false;
+        if(author!=null){
+            Predicate<Book> predicate = b-> b.getName() == book.getName();
+            author.getBooks().removeIf(predicate);
+            author.setBook(book);;
+            result = true;
+        }
+        return result;
+    }
+
+    public Book getBook(int idAuthor, String name){
+        Author author = this.get(idAuthor);
+        Book result=null;
+        if(author==null)
+            return null;
+
+        for (Book book:author.getBooks()) {
+            if(book.getName().equals(name)){
+                result = book;
+                break;
+            }
+        }
+        return result;
+
+    }
+
 }

@@ -1,5 +1,6 @@
 package co.edu.uniandes.Workshop7.Library.Entities;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class Author {
@@ -24,12 +25,21 @@ public class Author {
     }
 
     public List<Book> getBooks() {
+        if(books ==null)
+            books = new LinkedList<>();
         return books;
     }
 
     public void setBooks(List<Book> books) {
         this.books = books;
     }
+
+    public void setBook (Book book){
+        if(this.books ==null)
+            this.books = new LinkedList<>();
+        this.books.add(book);
+    }
+
 
 
 }
