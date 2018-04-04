@@ -11,6 +11,8 @@ import org.junit.runners.JUnit4;
 import uk.co.jemos.podam.api.PodamFactory;
 import uk.co.jemos.podam.api.PodamFactoryImpl;
 
+import java.util.Date;
+
 @RunWith(JUnit4.class)
 public class AuthorTest  extends TestCase {
 
@@ -37,12 +39,16 @@ public class AuthorTest  extends TestCase {
 
         Assert.assertEquals(newAuthor.getName(), author.getName());
         Assert.assertEquals(newAuthor.getBooks().size(), author.getBooks().size());
+
+        Date currentDate = new Date();
+
         for (Book newBook:newAuthor.getBooks()) {
             book = services.getBook(idAuthor, newBook.getName());
             Assert.assertEquals(newBook.getId(), book.getId());
             Assert.assertEquals(newBook.getName(), book.getName());
             Assert.assertEquals(newBook.getCode(), book.getCode());
             Assert.assertEquals(newBook.getType(), book.getType());
+            //Assert.assertNotNull(book.getPublicationDate());
         }
     }
 
