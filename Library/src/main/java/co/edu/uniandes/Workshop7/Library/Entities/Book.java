@@ -32,7 +32,7 @@ public class Book {
     public void setName(String name) {
         this.name = name;
     }
-/*
+
     public Date getPublicationDate() {
         return publicationDate;
     }
@@ -40,7 +40,7 @@ public class Book {
     public void setPublicationDate(Date publicationDate) {
         this.publicationDate = publicationDate;
     }
-*/
+
     public String getCode() {
         return code;
     }
