@@ -52,7 +52,7 @@ public class AuthorRepository {
         if(author!=null){
             Predicate<Book> predicate = b-> b.getName() == book.getName();
             author.getBooks().removeIf(predicate);
-            author.setBook(book);;
+            author.setBook(book);
             result = true;
         }
         return result;
