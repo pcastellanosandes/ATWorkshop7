@@ -1,11 +1,22 @@
 package co.edu.uniandes.Workshop7.Library.Entities;
 
+import uk.co.jemos.podam.common.PodamCollection;
+import uk.co.jemos.podam.common.PodamIntValue;
+import uk.co.jemos.podam.common.PodamStringValue;
+
+import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Author {
+public class Author{
+
+    @PodamIntValue(minValue = 1, maxValue = 1000)
     private int id;
+
+    @PodamStringValue(length = 50)
     private String name;
+
+    @PodamCollection(nbrElements = 20)
     private List<Book> books;
 
     public int getId() {
